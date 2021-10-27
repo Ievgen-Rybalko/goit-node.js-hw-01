@@ -1,4 +1,26 @@
-**Читать на других языках: [Русский](README.md), [Українська](README.ua.md).**
+**Результаты выполнения команд**
+
+# Получаем и выводим весь список контактов в виде таблицы (console.table)
+
+node index.js --action list
+http://joxi.ru/E2p7OXDH4JJGym
+
+# Получаем контакт по id
+
+node index.js --action get --id 5
+http://joxi.ru/KAgR6dDHN336z2
+
+# Добавялем контакт
+
+node index.js --action add --name Mango --email mango@gmail.com --phone 322-22-22
+http://joxi.ru/1A5E7v0FzOOJWA
+
+# Удаляем контакт
+
+node index.js --action remove --id=3
+http://joxi.ru/5mdKP5VCaZZ0Gr
+
+================================================================================================
 
 # Домашнее задание 1
 

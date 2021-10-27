@@ -3,22 +3,23 @@ const { listContacts,
     removeContact,
     addContact } = require("./contacts");
 
+const { Command } = require('commander');
+const program = new Command();
+program
+  .option('-a, --action <type>', 'choose action')
+  .option('-i, --id <type>', 'user id')
+  .option('-n, --name <type>', 'user name')
+  .option('-e, --email <type>', 'user email')
+  .option('-p, --phone <type>', 'user phone');
 
-// index.js
+program.parse(process.argv);
 
-const argv = require('yargs').argv;
-
-// ===using Hidebin===
-// const yargs = require("yargs");
-// const { hideBin } = require("yargs/helpers");
-// const { argv } = yargs(hideBin(process.argv));
-
-//console.log('argv:', hideBin(process.argv));
+const argv = program.opts();
 
 // TODO: рефакторить
 async function invokeAction({ action, id, name, email, phone }) {
-    switch (action) {
-      case 'list':
+  switch (action) {
+    case 'list':
         const contacts = await listContacts();
         console.table(contacts);
         break;
@@ -47,6 +48,6 @@ async function invokeAction({ action, id, name, email, phone }) {
       default:
         console.warn('\x1B[31m Unknown action type!');
     }
-  }
-  
-  invokeAction(argv);
+}
+
+invokeAction(argv);
