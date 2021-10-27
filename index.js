@@ -5,7 +5,15 @@ const { listContacts,
 
 
 // index.js
+
 const argv = require('yargs').argv;
+
+// ===using Hidebin===
+// const yargs = require("yargs");
+// const { hideBin } = require("yargs/helpers");
+// const { argv } = yargs(hideBin(process.argv));
+
+//console.log('argv:', hideBin(process.argv));
 
 // TODO: рефакторить
 async function invokeAction({ action, id, name, email, phone }) {
